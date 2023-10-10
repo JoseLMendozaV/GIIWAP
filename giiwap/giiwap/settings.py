@@ -21,12 +21,12 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-_6s+9n=#$(c6t4i)=n$!3s=tq(3nfxljv$+l7i_(uwd$73=03$"
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sagaka.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'giiwap-sagaka.pythonanywhere.com']
 
 
 # Application definition

@@ -1,0 +1,64 @@
+
+{% extends "main/base_darkmode.html" %}
+{% load static %}
+{% block title %}Inicio | GIIWAP{% endblock %}
+
+{% block content %}
+
+<!-- Topbar -->
+<div class="hidden md:flex bg-gray-900 text-sm text-white py-2">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <div class="flex space-x-6">
+      <span><i class="fas fa-map-marker-alt text-blue-400 mr-1"></i> UTP, Chiriquí, Panamá</span>
+      <span><i class="fas fa-envelope text-blue-400 mr-1"></i> jose.mendoza11@utp.ac.pa</span>
+    </div>
+    <div class="text-gray-400 hidden xl:block">Grupo de Investigación en Inteligencia Web y Aprendizaje Profundo</div>
+    <div class="flex space-x-2">
+      <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow">
+  <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+    <a href="#home" class="flex items-center space-x-2">
+      <img src="{% static 'img/logo.svg' %}" alt="GIIWAP Logo" class="h-10 w-auto">
+      <span class="text-2xl font-bold tracking-tight text-white">GII<span class="text-blue-300">WAP</span></span>
+    </a>
+    
+    <button class="block md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="hidden md:flex space-x-8 uppercase text-sm tracking-wide">
+      <a href="#home" class="text-blue-300">Inicio</a>
+      <a href="#about" class="hover:text-blue-300">Nosotros</a>
+      <a href="#services" class="hover:text-blue-300">LINI</a>
+      <a href="#project" class="hover:text-blue-300">Proyectos</a>
+      <a href="#team" class="hover:text-blue-300">Equipo</a>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <a href="#home" class="block py-2 text-blue-300">Inicio</a>
+    <a href="#about" class="block py-2 hover:text-blue-300">Nosotros</a>
+    <a href="#services" class="block py-2 hover:text-blue-300">LINI</a>
+    <a href="#project" class="block py-2 hover:text-blue-300">Proyectos</a>
+    <a href="#team" class="block py-2 hover:text-blue-300">Equipo</a>
+  </div>
+</header>
+
+<!-- Aquí van las secciones: hero, about, services, projects, team, footer, modals -->
+
+
+{% include "main/partials/hero.html" %}
+{% include "main/partials/about.html" %}
+{% include "main/partials/services.html" %}
+{% include "main/partials/projects.html" %}
+{% include "main/partials/team.html" %}
+{% include "main/partials/footer.html" %}
+{% include "main/partials/modals.html" %}
+
+{% endblock %}

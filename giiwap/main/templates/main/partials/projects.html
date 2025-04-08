@@ -1,0 +1,21 @@
+{% load static %}
+<section id="project" class="bg-gray-900 py-20 text-white dark:bg-gray-800 transition-colors">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-down">
+      <h5 class="text-blue-400 text-lg uppercase mb-2">Nuestros Proyectos</h5>
+      <h2 class="text-4xl font-bold tracking-tight">Proyectos recientes</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="relative group rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <img src="{% static 'img/project-1.png' %}" alt="Deep Learning" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
+          <div>
+            <h4 class="text-xl font-bold text-blue-300 mb-2">Deep Learning</h4>
+            <p class="text-white text-sm">Detección de masas y nódulos en radiografías de tórax con redes neuronales.</p>
+            <button onclick="openModal('modal1')" class="mt-4 text-sm text-blue-400 hover:underline">Ver más</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

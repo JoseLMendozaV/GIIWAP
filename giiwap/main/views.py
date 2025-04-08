@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 
 class BaseTemplateView(generic.TemplateView):
-    template_name = 'main/index.html'
+    template_name = 'main/index_full.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,7 +23,7 @@ class IndexView(BaseTemplateView):
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you. We will be in touch soon. :)')
-            return redirect('index')
+            return redirect('index_full')
         else:
             messages.error(request, 'Something went wrong. Please try again.')
             context = self.get_context_data()

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIIWAP</title>
+    
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- AOS.js para animaciones -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+
+
+    <style>
+      html {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Spinner animation */
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top: 4px solid #38bdf8;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <!-- Spinner Start -->
+    <div id="spinner" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+  <!-- Topbar Start -->
+  <div class="hidden md:flex bg-gray-900 text-sm text-white py-2">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex space-x-6">
+        <span><i class="fas fa-map-marker-alt text-blue-400 mr-1"></i> UTP, Chiriquí, Panamá</span>
+        <span><i class="fas fa-envelope text-blue-400 mr-1"></i> jose.mendoza11@utp.ac.pa</span>
+      </div>
+      <div class="text-gray-400 hidden xl:block">
+        Grupo de Investigación en Inteligencia Web y Aprendizaje Profundo
+      </div>
+      <div class="flex space-x-2">
+        <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-blue-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Topbar End -->
+
+  <!-- Navbar Start -->
+  <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow">
+    <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+      <a href="#home" class="text-2xl font-bold tracking-tight">
+        GII<span class="text-blue-300">WAP</span>
+      </a>
+      <button class="block md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="hidden md:flex space-x-8 uppercase text-sm tracking-wide">
+        <a href="#home" class="text-blue-300">Inicio</a>
+        <a href="#about" class="hover:text-blue-300">Nosotros</a>
+        <a href="#services" class="hover:text-blue-300">LINI</a>
+        <a href="#project" class="hover:text-blue-300">Proyectos</a>
+        <a href="#team" class="hover:text-blue-300">Equipo</a>
+      </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="#home" class="block py-2 text-blue-300">Inicio</a>
+      <a href="#about" class="block py-2 hover:text-blue-300">Nosotros</a>
+      <a href="#services" class="block py-2 hover:text-blue-300">LINI</a>
+      <a href="#project" class="block py-2 hover:text-blue-300">Proyectos</a>
+      <a href="#team" class="block py-2 hover:text-blue-300">Equipo</a>
+    </div>
+  </header>
+  <!-- Navbar End -->
+
+  <!-- Hero Section -->
+<section id="home" class="relative w-full h-[90vh] overflow-hidden">
+  <div class="absolute inset-0 bg-black/60 z-10"></div>
+  <div class="absolute inset-0 z-0">
+    <img src="{% static 'img/carousel-1.jpg' %}" class="w-full h-full object-cover animate-fade duration-1000" alt="">
+  </div>
+  <div class="relative z-20 flex flex-col justify-center items-center h-full text-center px-4" data-aos="fade-up">
+    <h2 class="text-blue-300 text-lg md:text-xl font-medium mb-4">Contribuyendo al avance científico</h2>
+    <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      Investigando temas de vanguardia en las ciencias de la computación
+    </h1>
+    <p class="text-white text-lg md:text-xl max-w-3xl mb-6">
+      Formando a la próxima generación de investigadores e innovadores.
+    </p>
+  </div>
+</section>
+
+<!-- Second Slide (opcional auto-rotate si se quiere agregar JS más adelante) -->
+<section class="relative w-full h-[90vh] overflow-hidden">
+  <div class="absolute inset-0 bg-black/50 z-10"></div>
+  <div class="absolute inset-0 z-0">
+    <img src="{% static 'img/carousel-2.jpg' %}" class="w-full h-full object-cover animate-fade duration-1000" alt="">
+  </div>
+  <div class="relative z-20 flex flex-col justify-center items-center h-full text-center px-4" data-aos="fade-up">
+    <h2 class="text-blue-300 text-lg md:text-xl font-medium mb-4">Innovadoras soluciones de TI</h2>
+    <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+      Para un mundo digital en constante evolución
+    </h1>
+    <p class="text-white text-lg md:text-xl max-w-3xl mb-6">
+      Soluciones prácticas para desafíos complejos en la sociedad y la industria.
+    </p>
+  </div>
+</section>
+
+<section class="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div data-aos="fade-up" class="text-center">
+        <h5 class="text-blue-300 text-xl font-semibold mb-2">Webavanzada</h5>
+        <p class="text-white">Innovando en desarrollos y soluciones web de vanguardia</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100" class="text-center">
+        <h5 class="text-blue-300 text-xl font-semibold mb-2">Machinestrato</h5>
+        <p class="text-white">Liderando en técnicas y aplicaciones de aprendizaje automático</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+        <h5 class="text-blue-300 text-xl font-semibold mb-2">Datavista</h5>
+        <p class="text-white">Transformando y analizando grandes volúmenes de información</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300" class="text-center">
+        <h5 class="text-blue-300 text-xl font-semibold mb-2">Cyberfortaleza</h5>
+        <p class="text-white">Garantizando seguridad y protección en el entorno digital</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Start -->
+<section id="about" class="py-20 bg-white text-gray-800">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Imágenes con efecto superpuesto -->
+      <div class="relative" data-aos="fade-right">
+        <img src="{% static 'img/about-1.jpg' %}" class="rounded-xl w-4/5 shadow-lg" alt="About 1">
+        <img src="{% static 'img/about-2.jpg' %}" class="absolute top-1/2 left-1/2 w-2/3 rounded-xl shadow-xl transform -translate-x-1/2 -translate-y-1/2 border-4 border-white" alt="About 2">
+      </div>
+
+      <!-- Texto -->
+      <div data-aos="fade-left">
+        <h5 class="text-blue-600 text-lg font-semibold uppercase mb-3">Sobre Nosotros</h5>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Grupo de Investigación en Inteligencia Web y Aprendizaje Profundo (GIIWAP)</h2>
+        <p class="mb-4 text-lg text-gray-600 leading-relaxed">
+          Somos un grupo de investigación de las ciencias de la computación que se dedica a la investigación y el desarrollo de tecnologías innovadoras en inteligencia artificial, aprendizaje automático, aprendizaje profundo y desarrollo web.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Nuestro objetivo es impulsar el avance científico y ofrecer soluciones prácticas a desafíos complejos en la sociedad y la industria. Estamos comprometidos con el desarrollo de tecnologías que tengan un impacto positivo y sostenible en el mundo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About End -->
+
+<!-- Services Start -->
+<section id="services" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+      <h5 class="text-blue-400 text-lg font-medium uppercase mb-2">Líneas de Investigación</h5>
+      <h2 class="text-4xl font-bold leading-tight">Lo que estamos investigando</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Card 1 -->
+      <div data-aos="zoom-in" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="fas fa-file-code text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Desarrollo Web</h4>
+        <p class="text-gray-300">Investigación web ágil con Django y tecnologías modernas.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div data-aos="zoom-in" data-aos-delay="100" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="bi bi-cpu-fill text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Machine Learning</h4>
+        <p class="text-gray-300">Aprendizaje de datos sin programación explícita.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div data-aos="zoom-in" data-aos-delay="200" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="fas fa-object-ungroup text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Aprendizaje Profundo</h4>
+        <p class="text-gray-300">Redes neuronales que simulan el cerebro humano.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div data-aos="zoom-in" data-aos-delay="300" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="fas fa-eye text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Visión por Computadora</h4>
+        <p class="text-gray-300">Interpretación automática de imágenes por máquinas.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div data-aos="zoom-in" data-aos-delay="400" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="fas fa-chart-bar text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Análisis de Datos</h4>
+        <p class="text-gray-300">Transformación de datos para obtener decisiones informadas.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div data-aos="zoom-in" data-aos-delay="500" class="bg-white/5 backdrop-blur-lg p-6 rounded-xl shadow-lg hover:scale-105 transition transform duration-500 text-center">
+        <i class="fas fa-user-shield text-blue-400 text-5xl mb-4"></i>
+        <h4 class="text-xl font-semibold mb-2">Ciberseguridad</h4>
+        <p class="text-gray-300">Protección de datos y redes contra accesos no autorizados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services End -->
+
+<!-- Projects Start -->
+<section id="project" class="bg-gray-900 py-20 text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-down">
+      <h5 class="text-blue-400 text-lg uppercase mb-2">Nuestros Proyectos</h5>
+      <h2 class="text-4xl font-bold">Proyectos recientes</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div data-aos="zoom-in" class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg">
+        <img src="{% static 'img/project-1.png' %}" alt="Proyecto 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
+          <div>
+            <h4 class="text-xl font-bold text-blue-300 mb-2">Deep Learning</h4>
+            <p class="text-white text-sm">Detección de masas y nódulos en radiografías de tórax.</p>
+            <button onclick="openModal('modal1')" class="mt-4 text-sm text-blue-400 hover:underline">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div data-aos="zoom-in" data-aos-delay="100" class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg">
+        <img src="{% static 'img/project-2.jpg' %}" alt="Proyecto 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
+          <div>
+            <h4 class="text-xl font-bold text-blue-300 mb-2">Cyber Security</h4>
+            <p class="text-white text-sm">Soluciones de protección digital a nivel institucional.</p>
+            <button onclick="openModal('modal2')" class="mt-4 text-sm text-blue-400 hover:underline">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div data-aos="zoom-in" data-aos-delay="200" class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg">
+        <img src="{% static 'img/project-3.jpg' %}" alt="Proyecto 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
+          <div>
+            <h4 class="text-xl font-bold text-blue-300 mb-2">Mobile Info</h4>
+            <p class="text-white text-sm">Información sobre tecnología móvil emergente.</p>
+            <button onclick="openModal('modal3')" class="mt-4 text-sm text-blue-400 hover:underline">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puedes seguir con más proyectos... -->
+    </div>
+  </div>
+</section>
+
+<!-- MODALES -->
+<div id="modal1" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-xl p-8 max-w-xl mx-auto text-gray-800 relative">
+    <button onclick="closeModal('modal1')" class="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-2">Detección de Masas y Nódulos</h2>
+    <p>Proyecto de deep learning para la detección automática de enfermedades en radiografías de tórax utilizando redes neuronales convolucionales.</p>
+  </div>
+</div>
+
+<div id="modal2" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-xl p-8 max-w-xl mx-auto text-gray-800 relative">
+    <button onclick="closeModal('modal2')" class="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-2">Cyber Security Core</h2>
+    <p>Marco integral de seguridad digital que protege redes y datos críticos en entornos educativos y gubernamentales.</p>
+  </div>
+</div>
+
+<div id="modal3" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-xl p-8 max-w-xl mx-auto text-gray-800 relative">
+    <button onclick="closeModal('modal3')" class="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-2">Mobile Info</h2>
+    <p>Análisis y visualización de información sobre próximos lanzamientos móviles y tendencias tecnológicas emergentes.</p>
+  </div>
+</div>

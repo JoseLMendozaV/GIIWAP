@@ -1,0 +1,23 @@
+{% load static %}
+<section id="team" class="py-20 bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-down">
+      <h5 class="text-blue-600 text-lg uppercase mb-2">Nuestro Equipo</h5>
+      <h2 class="text-4xl font-bold tracking-tight">Conozca a nuestro equipo de expertos</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div class="text-center p-6 rounded-xl bg-white/10 backdrop-blur-md shadow-xl border border-white/10 hover:scale-105 transition-all" data-aos="fade-up">
+        <img src="{% static 'img/team-1.jpg' %}" alt="MSc. José Mendoza" class="w-32 h-32 mx-auto rounded-full mb-4">
+        <h4 class="text-xl font-semibold">MSc. José L. Mendoza V.</h4>
+        <p class="text-sm text-gray-500 dark:text-gray-300">Coordinador</p>
+        <p class="text-sm text-gray-500 dark:text-gray-300 mb-4">MSc. in Computing Science</p>
+        <div class="flex justify-center gap-3">
+          <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

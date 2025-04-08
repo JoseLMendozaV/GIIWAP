@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}GIIWAP{% endblock %}</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" href="{% static 'img/logo.svg' %}">
+    <link rel="apple-touch-icon" href="{% static 'img/logo.svg' %}">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    {% block extra_head %}{% endblock %}
+
+    <style>
+      html {
+        font-family: 'Inter', sans-serif;
+      }
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top: 4px solid #38bdf8;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Spinner -->
+    <div id="spinner" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- AOS Init -->
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+
+    {% block content %}{% endblock %}
+
+    <!-- Back to Top -->
+    <a href="#home" class="fixed bottom-5 right-5 z-50 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg transition">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Modals script -->
+    <script>
+      function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+        document.getElementById(id).classList.add('flex');
+      }
+
+      function closeModal(id) {
+        document.getElementById(id).classList.add('hidden');
+        document.getElementById(id).classList.remove('flex');
+      }
+    </script>
+
+    {% block extra_js %}{% endblock %}
+    <script>
+      window.addEventListener('load', () => {
+        const spinner = document.getElementById('spinner');
+        if (spinner) {
+          spinner.classList.add('hidden');
+        }
+      });
+    </script>
+    <!-- Dark mode toggle -->
+<div class="fixed top-4 right-4 z-50">
+  <button onclick="document.documentElement.classList.toggle('dark')" 
+          class="bg-gray-800 dark:bg-gray-200 text-white dark:text-black p-2 rounded-full shadow-lg transition">
+    🌓
+  </button>
+</div>
+
+  </body>
+</html>

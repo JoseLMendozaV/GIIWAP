@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}GIIWAP{% endblock %}</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    };
+  </script>
+
+  <!-- AOS (Animaciones) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Iconos -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid #38bdf8;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-500">
+
+<!-- Spinner -->
+<div id="spinner" class="fixed inset-0 flex items-center justify-center bg-white dark:bg-gray-900 z-50">
+  <div class="spinner"></div>
+</div>
+
+<!-- Botón de modo oscuro -->
+<div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleDarkMode()" class="group bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 p-2 rounded-full shadow-md transition duration-300 hover:scale-110">
+    <span id="theme-icon" class="transition-transform duration-500 ease-in-out text-xl transform group-hover:scale-125 group-hover:rotate-180">🌕</span>
+  </button>
+</div>
+
+{% block content %}{% endblock %}
+
+<!-- Volver arriba -->
+<a href="#home" class="fixed bottom-5 right-5 z-50 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg transition">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Scripts -->
+<script>
+  function toggleDarkMode() {
+    const html = document.documentElement;
+    const icon = document.getElementById('theme-icon');
+    html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    icon.textContent = isDark ? '🌑' : '🌕';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  // Detectar preferencia guardada
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('theme-icon');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      icon.textContent = '🌑';
+    } else {
+      icon.textContent = '🌕';
+    }
+  });
+
+  // Ocultar spinner al cargar o a los 3 segundos
+  window.addEventListener('load', () => {
+    const spinner = document.getElementById('spinner');
+    if (spinner) spinner.classList.add('hidden');
+  });
+  setTimeout(() => {
+    const spinner = document.getElementById('spinner');
+    if (spinner && !spinner.classList.contains('hidden')) {
+      spinner.classList.add('hidden');
+    }
+  }, 3000);
+
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

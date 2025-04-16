@@ -1,0 +1,57 @@
+
+{% extends "main/base_darkmode_moon_pretty_giiwap.html" %}
+{% load static %}
+{% block title %}Inicio | GIIWAP{% endblock %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V0Y83RNPGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V0Y83RNPGH');
+</script>
+{% block content %}
+
+
+
+<!-- Navbar -->
+<header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow">
+  <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+    <a href="#home" class="flex items-center space-x-2">
+      <img src="{% static 'img/logo.svg' %}" alt="GIIWAP Logo" class="h-10 w-auto">
+      <span class="text-2xl font-bold tracking-tight text-white">GII<span class="text-blue-300">WAP</span></span>
+    </a>
+    
+    <button class="block md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="hidden md:flex space-x-8 uppercase text-sm tracking-wide">
+      <a href="#home" class="text-blue-300">Inicio</a>
+      <a href="#about" class="hover:text-blue-300">Nosotros</a>
+      <a href="#services" class="hover:text-blue-300">LINI</a>
+      <a href="#project" class="hover:text-blue-300">Proyectos</a>
+      <a href="#team" class="hover:text-blue-300">Equipo</a>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <a href="#home" class="block py-2 text-blue-300">Inicio</a>
+    <a href="#about" class="block py-2 hover:text-blue-300">Nosotros</a>
+    <a href="#services" class="block py-2 hover:text-blue-300">LINI</a>
+    <a href="#project" class="block py-2 hover:text-blue-300">Proyectos</a>
+    <a href="#team" class="block py-2 hover:text-blue-300">Equipo</a>
+  </div>
+</header>
+
+<!-- Aquí van las secciones: hero, about, services, projects, team, footer, modals -->
+
+
+{% include "main/partials/hero.html" %}
+{% include "main/partials/about.html" %}
+{% include "main/partials/services.html" %}
+{% include "main/partials/projects.html" %}
+{% include "main/partials/team.html" %}
+{% include "main/partials/footer.html" %}
+{% include "main/partials/modals.html" %}
+
+{% endblock %}
